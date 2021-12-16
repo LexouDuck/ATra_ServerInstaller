@@ -1,0 +1,15 @@
+[Unit]
+Description=Avial Authenticator Adapter Service
+Requires=avesterra.service
+After=avesterra.service
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+WorkingDirectory=/AvesTerra/Executables
+ExecStart=bash -c './avial_authenticator'
+Restart=on-failure
+RestartSec=2s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,139 @@
+echo Avial setup...
+
+ready <0|0|10> "Registry Adapter"
+ready <0|0|11> "Object Adapter"
+ready <0|0|12> "Folder Adapter"
+ready <0|0|13> "File Adapter"
+ready <0|0|15> "Authorization Adapter"
+ready <0|0|16> "Trash Adapter"
+
+
+echo Authorizations setup...
+
+authorize <0|0|10> 1
+authorize <0|0|11> 1
+authorize <0|0|12> 1
+authorize <0|0|13> 1
+
+
+echo Registry setup...
+
+registry "AvesTerra Registry"		"AvesTerra" 	<0|0|1>
+registry "Taxonomy Registry"		"Taxonomy"	<0|0|2>
+registry "Declaration Registry"		"Declaration"	<0|0|3>
+registry "Network Registry"	 	"Network"	<0|0|4>
+registry "Host Registry"		"Host"		<0|0|5>
+registry "Trash Registry"		"Trash"	   	<0|0|6>
+registry "Agent Registry"		"Agent"	  	<0|0|7>
+registry "Tuple Registry"		"Tuple"	  	<0|0|8>
+registry "Ontology Registry"		"Ontology"	<0|0|9>
+
+registry "Executable Registry"		"Executable"	<0|0|20>
+registry "Source Registry"		"Source"	<0|0|21>
+registry "Certificate Registry"		"Certificate"	<0|0|22>
+registry "Documentation Registry"	"Documentation"	<0|0|23>
+registry "Example Registry"		"Example"	<0|0|24>
+registry "Test Registry"		"Test"		<0|0|25>  
+registry "File Registry"		"File"		<0|0|26>  
+registry "Entity Registry"	        "Entity"	<0|0|27>  
+registry "Template Registry"	        "Template"	<0|0|28>  
+
+registry "Model Registry"	       	"Model"		<0|0|30>  
+registry "Import Registry"	        "Import"	<0|0|31>  
+registry "Export Registry"	        "Export	"	<0|0|32>  
+registry "Pattern Registry"	        "Pattern"	<0|0|33>  
+
+registry "ATra Registry"		"ATra"		<0|0|100>  
+registry "Avert Registry"		"Avert"		<0|0|101>  
+registry "Avian Registry"		"Avian"		<0|0|102>  
+
+registry "Orchestra Registry"		"Orchestra"	<0|0|1000>  
+
+
+register <0|0|1> "<AvesTerra Server>" 	"<AvesTerra>" 		<0|0|0>
+register <0|0|1> "AvesTerra Registry" 	"AvesTerra" 		<0|0|1>
+register <0|0|1> "Taxonomy Registry"	"Taxonomy"		<0|0|2>
+register <0|0|1> "Declaration Registry"	"Declaration"		<0|0|3>
+register <0|0|1> "Network Registry"	"Network"		<0|0|4>
+register <0|0|1> "Host Registry"	"Host"			<0|0|5>
+register <0|0|1> "Trash Registry"	"Trash"	   		<0|0|6>
+register <0|0|1> "Agent Registry"	"Agent"			<0|0|7>
+register <0|0|1> "Tuple Registry"	"Tuple"	  		<0|0|8>
+register <0|0|1> "Ontology Registry"	"Ontology"		<0|0|9>
+
+register <0|0|1> "Executable Registry"	"Executable"		<0|0|20>
+register <0|0|1> "Source Registry"	"Source"		<0|0|21>
+register <0|0|1> "Certificate Registry"	"Certificate"		<0|0|22>
+register <0|0|1> "Documentation Registry" "Documentation"	<0|0|23>
+register <0|0|1> "Example Registry"	"Example"		<0|0|24>
+register <0|0|1> "Test Registry"	"Test"			<0|0|25>  
+register <0|0|1> "File Registry"	"File"			<0|0|26>  
+register <0|0|1> "Entity Registry"	"Entity"		<0|0|27>  
+register <0|0|1> "Template Registry"	"Template"		<0|0|28>  
+
+register <0|0|1> "Model Registry"	"Model"			<0|0|30>  
+register <0|0|1> "Import Registry"	"Import"		<0|0|31>  
+register <0|0|1> "Export Registry"	"Export"		<0|0|32>  
+register <0|0|1> "Pattern Registry"	"Pattern"		<0|0|33>  
+
+register <0|0|1> "ATra Registry" 	"ATra" 			<0|0|100>
+
+echo Declaration setup...
+
+-- AvesTerra Outlets (10..19)
+
+declare <0|0|3> "Registry Outlet"		"Registries"		<0|0|10>
+declare <0|0|3> "Object Outlet"			"Objects"		<0|0|11>
+declare <0|0|3> "Folder Outlet"			"Folders"		<0|0|12>
+declare <0|0|3> "File Outlet"			"Files"	 		<0|0|13>
+declare <0|0|3> "Tracker Outlet"		"Tracks"		<0|0|14>
+declare <0|0|3> "Authentication Outlet"		"Authentications"	<0|0|15>
+declare <0|0|3> "Garbage Outlet"		"Garbage"		<0|0|16>
+declare <0|0|3> "Agent Outlet"			"Agents",		<0|0|17>
+declare <0|0|3> "Tuple Outlet"			"Tuples"		<0|0|18>
+declare <0|0|3> "Reservation Outlet"		"Reservations"		<0|0|19>
+
+-- Avesterra Resources (20..99)
+declare <0|0|3> "Executable Registry"		"Executable"		<0|0|20>
+declare <0|0|3> "Source Registry"		"Source"		<0|0|21>
+declare <0|0|3> "Certificate Registry"		"Certificate"		<0|0|22>
+declare <0|0|3> "Documentation Registry"	"Documentation"		<0|0|23>
+declare <0|0|3> "Example Registry"		"Example"		<0|0|24>
+declare <0|0|3> "Test Registry"			"Test"			<0|0|25>
+declare <0|0|3> "File Registry"			"File"			<0|0|26>
+declare <0|0|3> "Entity Registry"		"Entity"		<0|0|27>
+declare <0|0|3> "Template Registry"		"Template"		<0|0|28>
+
+declare <0|0|3> "Model Registry"		"Model"			<0|0|30>  
+declare <0|0|3> "Import Registry"		"Import"		<0|0|31>  
+declare <0|0|3> "Export Registry"		"Export	"		<0|0|32>  
+declare <0|0|3> "Pattern Registry"		"Pattern"		<0|0|33>  
+
+-- System Registries/Outlets (100..999)
+declare <0|0|3> "ATra Registry"			"ATra"			<0|0|100>
+
+declare <0|0|3> "Contact Registry"		"Contact",		<0|0|212>
+declare <0|0|3> "Municipal Registry"		"Municipal"		<0|0|311>
+declare <0|0|3> "Health Registry"		"Health"		<0|0|312>
+declare <0|0|3> "Directory Registry"		"Directory"		<0|0|411>
+declare <0|0|3> "Repair Registry"		"Repair"		<0|0|611>
+declare <0|0|3> "Relay Registry"		"Relay"			<0|0|711>
+declare <0|0|3> "Utility Registry"		"Utility"		<0|0|811>
+declare <0|0|3> "Emergency Registry"		"Emergency"		<0|0|911>
+declare <0|0|3> "Tracker Outlet"		"Tracker"		<0|0|912>
+
+declare <0|0|3> "Georgetown Registry"		"Georgetown"		<0|0|20057>
+
+echo Taxnomy setup...
+taxonomies <0|0|2>
+
+echo Network setup...
+networks
+
+echo Host setup...
+hosts
+
+echo Enrollment setup...
+enrollment
+
+echo Avial Ready!
