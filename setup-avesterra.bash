@@ -1,7 +1,7 @@
 #############################################################
 
 #   This script is used to launch and configure AvesTerra
-#   and should only be run once; if run multiple times, 
+#   and should only be run once; if run multiple times,
 #   the /AvesTerra/Data directory should be deleted, and
 #   then this script should be run again.
 
@@ -43,10 +43,6 @@ sudo systemctl start avial_registries.service
 sudo systemctl start avial_trash.service
 sleep 5
 # ---------- LAUNCH UNIVERSAL ADAPTERS(END) -----------
-
-# ---------- SETUP SERVER(BEGIN) -----------
-./avu run /AvesTerra/Local/setup.txt $MASTER_AUTH
-# ---------- SETUP SERVER(END) -----------
 
 # ---------- START ATRA EXECUTABLES(BEGIN) -----------
 sudo systemctl start atra.service

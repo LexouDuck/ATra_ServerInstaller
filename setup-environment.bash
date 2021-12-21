@@ -1,18 +1,18 @@
 #######################################################################
-#   Please run this install script from where it was found,	   
+#   Please run this install script from where it was found,
 #   because when I designed this script, I made assumptions
 #   as to where certain files and folders could be found, without
 #   using the rigid structure of Absolute Paths, due to the fact
 #   I do not understand the File/Folder permissions on the ATra
-#   test/production servers.  
+#   test/production servers.
 
-#   NOTE: The Configuration files are still "In-Flux", meaning that 
-#   they are still being worked on by J at this point.  He or I will 
-#   provide you with the correct configuration files when the time 
+#   NOTE: The Configuration files are still "In-Flux", meaning that
+#   they are still being worked on by J at this point.  He or I will
+#   provide you with the correct configuration files when the time
 #   comes to actually launch a test.
-   
+
 #   NOTE 2.0: Please use the provided WolfSSL directory to install it.
-#   If you want to know where to get your own copy, then look up 
+#   If you want to know where to get your own copy, then look up
 #   WolfSSL 4.8.0 on Google; you will be able to download it
 #   from GitHub.  This is the newest version of WolfSSL that works
 #   with J's AvesTerra server; newer versions have linking issues
@@ -39,7 +39,7 @@ cd wolfssl-4.8.0-stable/
 make
 sudo make install
 
-# Add WolfSSL Install directory path to (The linker)'s 
+# Add WolfSSL Install directory path to (The linker)'s
 # configuration management directory
 sudo touch /etc/ld.so.conf.d/wolfssl.conf
 sudo bash -c 'echo "/usr/local/lib" > /etc/ld.so.conf.d/wolfssl.conf'
@@ -60,6 +60,7 @@ sudo mkdir -p /AvesTerra/Certificates
 sudo mkdir -p /AvesTerra/Executables
 sudo mkdir -p /AvesTerra/Local
 sudo mkdir -p /AvesTerra/Data
+sudo mkdir -p /AvesTerra/Templates
 
 # Chown the directory, to remove root privileges
 # from the Executables
@@ -89,6 +90,11 @@ cp ./ATerra/Config/* /AvesTerra/Local
 echo "Completed AvesTerra Configuration File Loading Process"
 # ---------- COPY AVESTERRA CONFIGS(END) --------
 
+# ---------- COPY AVESTERRA TEMPLATES(BEGIN) --------
+echo "Started AvesTerra Template File Loading Process"
+cp ./ATerra/Templates/* /AvesTerra/Templates
+echo "Completed AvesTerra Template File Loading Process"
+# ---------- COPY AVESTERRA TEMPLATES(END) --------
 
 # ---------- COPY AVESTERRA CERTS(BEGIN) --------
 echo "Started AvesTerra Certificate Loading Process"
