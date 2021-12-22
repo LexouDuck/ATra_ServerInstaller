@@ -20,6 +20,15 @@
 #   WolfSSL version for builds.
 #######################################################################
 
+# CHANGE THIS FOLDER PATH TO WHERE YOU ARE STORING
+# THE avesterra.pem, server.key, and server.pem FILES
+# Below is an example, where my script will look
+# in the relative path of ~/ATra/Certificates
+# for the key/cert files.  You should replace the
+# path below with the path to the folder that stores
+# the specified key/cert files.
+AVESTERRA_CERT_KEY_DIR_PATH="$HOME/Certificates"
+
 # ---------- DEPENDENCY INSTALLATION(BEGIN) -----------
 echo "Started AvesTerra Dependency Installation Process"
 # Yum package installs
@@ -96,8 +105,35 @@ cp ./ATerra/Templates/* /AvesTerra/Templates
 echo "Completed AvesTerra Template File Loading Process"
 # ---------- COPY AVESTERRA TEMPLATES(END) --------
 
-# ---------- COPY AVESTERRA CERTS(BEGIN) --------
-echo "Started AvesTerra Certificate Loading Process"
-cp ./ATerra/Certificates/* /AvesTerra/Certificates
-echo "Completed AvesTerra Certificate Loading Process"
-# ---------- COPY AVESTERRA CERTS(END) --------
+
+# ---------- LINKING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
+echo "Started AvesTerra CERT/KEY File Linking Process"
+
+# Clean out the old links!
+rm -f /AvesTerra/Certificates/*
+
+# If avesterra.pem isn't in the source dir, then error, else link
+if [ "$( ls -la $AVESTERRA_CERT_KEY_DIR_PATH | grep 'avesterra.pem')" ]; then
+  ln -s $AVESTERRA_CERT_KEY_DIR_PATH/avesterra.pem /AvesTerra/Certificates/avesterra.pem
+else
+  printf "Error: The file $AVESTERRA_CERT_KEY_DIR_PATH/avesterra.pem doesn't exist" >&2
+  exit -1
+fi
+
+# If server.pem isn't in the source dir, then error, else link
+if [ "$( ls -la $AVESTERRA_CERT_KEY_DIR_PATH | grep 'server.pem')" ]; then
+  ln -s $AVESTERRA_CERT_KEY_DIR_PATH/server.pem /AvesTerra/Certificates/server.pem
+else
+  printf "Error: The file $AVESTERRA_CERT_KEY_DIR_PATH/server.pem doesn't exist" >&2
+  exit -1
+fi
+
+# If avesterra.key isn't in the source dir, then error, else link
+if [ "$( ls -la $AVESTERRA_CERT_KEY_DIR_PATH | grep 'server.key')" ]; then
+  ln -s $AVESTERRA_CERT_KEY_DIR_PATH/server.key /AvesTerra/Certificates/server.key
+else
+  printf "Error: The file $AVESTERRA_CERT_KEY_DIR_PATH/server.key doesn't exist" >&2
+  exit -1
+fi
+echo "Completed AvesTerra CERT/KEY File Linking Process"
+# ---------- LINKING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
