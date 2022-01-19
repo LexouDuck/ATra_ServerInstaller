@@ -21,6 +21,8 @@
 
 #############################################################
 
+# Clean out old /AvesTerra/Data folder
+sudo rm -rf /AvesTerra/Data
 
 # Move to /AvesTerra
 cd /AvesTerra/Executables

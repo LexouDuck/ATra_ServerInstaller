@@ -68,7 +68,6 @@ sudo mkdir -p /AvesTerra/
 sudo mkdir -p /AvesTerra/Certificates
 sudo mkdir -p /AvesTerra/Executables
 sudo mkdir -p /AvesTerra/Local
-sudo mkdir -p /AvesTerra/Data
 sudo mkdir -p /AvesTerra/Templates
 
 # Chown the directory, to remove root privileges
