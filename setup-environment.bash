@@ -32,7 +32,7 @@ AVESTERRA_CERT_KEY_DIR_PATH="$HOME/Certificates"
 # ---------- DEPENDENCY INSTALLATION(BEGIN) -----------
 echo "Started AvesTerra Dependency Installation Process"
 # Yum package installs
-sudo yum install -y unzip gcc make
+sudo yum install -y unzip gcc make autoconf automake
 echo "Completed AvesTerra Dependency Installation Process"
 # ---------- DEPENDENCY INSTALLATION(END) -----------
 
@@ -41,6 +41,9 @@ echo "Completed AvesTerra Dependency Installation Process"
 echo "Started WolfSSL Installation Process"
 # Extract and install WolfSSL
 cd wolfssl-4.8.0-stable/
+
+# Autogen.sh
+./autogen.sh
 
 # Configure, build, and install
 # (For more info, check the INSTALL file in the wolfssl-5.0.0 directory)
