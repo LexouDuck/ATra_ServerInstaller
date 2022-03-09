@@ -6,10 +6,11 @@ After=avesterra.service avial_authenticator.service avial_files.service avial_fo
 [Service]
 Type=simple
 RemainAfterExit=yes
-WorkingDirectory=/AvesTerra/Executables
-ExecStart=bash -c './atra'
+ExecStart=/AvesTerra/Executables/atra
 Restart=on-failure
 RestartSec=2s
+User=atra
+Group=atra
 
 [Install]
 WantedBy=multi-user.target

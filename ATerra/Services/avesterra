@@ -6,8 +6,9 @@ After=network.target
 [Service]
 Type=simple
 RemainAfterExit=yes
-WorkingDirectory=/AvesTerra/Executables
-ExecStart=bash -c './avesterra_server'
+ExecStart=/AvesTerra/Executables/avesterra_server
+User=atra
+Group=atra
 
 [Install]
 WantedBy=multi-user.target

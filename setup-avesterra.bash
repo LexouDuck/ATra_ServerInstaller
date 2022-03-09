@@ -28,7 +28,8 @@ sudo rm -rf /AvesTerra/Data
 cd /AvesTerra/Executables
 
 # ---------- LAUNCH AVESTERRA SERVER(BEGIN) -----------
-sudo systemctl start avesterra.service
+sudo systemctl enable avesterra
+sudo systemctl start avesterra
 sleep 5
 # ---------- LAUNCH AVESTERRA SERVER(END) -----------
 
@@ -36,16 +37,31 @@ sleep 5
 MASTER_AUTH="$( ./avu run /AvesTerra/Local/configure.txt 0 | grep -E '^[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+$' )"
 # ---------- CONFIGURE SERVER(END) -----------
 
+# ---------- START ADAPTERS ON BOOT -----------
+sudo systemctl enable avial_compartments
+sudo systemctl enable avial_files
+sudo systemctl enable avial_folders
+sudo systemctl enable avial_objects
+sudo systemctl enable avial_registries
+sudo systemctl enable avial_trash
+sudo systemctl enable avial_generals
+sudo systemctl enable avial_boost
+# ---------- START ADAPTERS ON BOOT(END) -----------
+
 # ---------- LAUNCH UNIVERSAL ADAPTERS(BEGIN) -----------
-sudo systemctl start avial_authenticator.service
-sudo systemctl start avial_files.service
-sudo systemctl start avial_folders.service
-sudo systemctl start avial_objects.service
-sudo systemctl start avial_registries.service
-sudo systemctl start avial_trash.service
+sudo systemctl start avial_registries
+sudo systemctl start avial_objects
+sudo systemctl start avial_folders
+sudo systemctl start avial_files
+sudo systemctl start avial_generals
+sudo systemctl start avial_compartments
+sudo systemctl start avial_trash
+sudo systemctl start avial_boost
 sleep 5
 # ---------- LAUNCH UNIVERSAL ADAPTERS(END) -----------
 
 # ---------- START ATRA EXECUTABLES(BEGIN) -----------
-sudo systemctl start atra.service
+sudo systemctl enable atra
+sudo systemctl start atra
+sleep 5
 # ---------- START ATRA EXECUTABLES(END) -----------

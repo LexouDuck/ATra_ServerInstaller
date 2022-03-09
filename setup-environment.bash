@@ -43,7 +43,7 @@ echo "Started WolfSSL Installation Process"
 cd wolfssl-4.8.0-stable/
 
 # Autogen, generates local file dependencies to install wolfssl
-# It essentially generates files, such as the configure.ac file, 
+# It essentially generates files, such as the configure.ac file,
 # which can be modified to include or exclude certain features in
 # the wolfssl library
 ./autogen.sh

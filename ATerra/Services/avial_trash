@@ -1,15 +1,16 @@
 [Unit]
-Description=Avial Authenticator Adapter Service
+Description=Avial Trash Adapter Service
 Requires=avesterra.service
 After=avesterra.service
 
 [Service]
 Type=simple
 RemainAfterExit=yes
-WorkingDirectory=/AvesTerra/Executables
-ExecStart=bash -c './avial_authenticator'
+ExecStart=/AvesTerra/Executables/avial_trash
 Restart=on-failure
 RestartSec=2s
+User=atra
+Group=atra
 
 [Install]
 WantedBy=multi-user.target

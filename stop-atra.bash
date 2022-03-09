@@ -1,10 +1,12 @@
-sudo service atra stop
+sudo systemctl stop atra
 
-sudo service avial_authenticator stop
-sudo service avial_files stop
-sudo service avial_folders stop
-sudo service avial_objects stop
-sudo service avial_registries stop
-sudo service avial_trash stop
+sudo systemctl stop avial_registries
+sudo systemctl stop avial_objects
+sudo systemctl stop avial_folders
+sudo systemctl stop avial_files
+sudo systemctl stop avial_generals
+sudo systemctl stop avial_compartments
+sudo systemctl stop avial_trash
+sudo systemctl stop avial_boost
 
-sudo service avesterra stop
+sudo systemctl stop avesterra

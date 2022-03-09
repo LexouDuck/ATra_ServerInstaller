@@ -1,15 +1,16 @@
 [Unit]
-Description=Avial Objects Adapter Service
+Description=Avial Registries Adapter Service
 Requires=avesterra.service
 After=avesterra.service
 
 [Service]
 Type=simple
 RemainAfterExit=yes
-WorkingDirectory=/AvesTerra/Executables
-ExecStart=bash -c './avial_objects'
+ExecStart=/AvesTerra/Executables/avial_registries
 Restart=on-failure
 RestartSec=2s
+User=atra
+Group=atra
 
 [Install]
 WantedBy=multi-user.target

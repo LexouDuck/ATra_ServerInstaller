@@ -1,9 +1,12 @@
-sudo service avesterra start
-sudo service avial_authenticator start
-sudo service avial_files start
-sudo service avial_folders start
-sudo service avial_objects start
-sudo service avial_registries start
-sudo service avial_trash start
+sudo systemctl start avesterra
 
-service atra start
+sudo systemctl start avial_registries
+sudo systemctl start avial_objects
+sudo systemctl start avial_folders
+sudo systemctl start avial_files
+sudo systemctl start avial_generals
+sudo systemctl start avial_compartments
+sudo systemctl start avial_trash
+sudo systemctl start avial_boost
+
+sudo systemctl start atra
