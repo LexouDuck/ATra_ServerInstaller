@@ -76,6 +76,7 @@ sudo mkdir -p /AvesTerra/Executables
 sudo mkdir -p /AvesTerra/Local
 sudo mkdir -p /AvesTerra/Templates
 
+
 # Chown the directory, to remove root privileges
 # from the Executables
 sudo chown -R $USER:$USER /AvesTerra
@@ -112,7 +113,7 @@ echo "Completed AvesTerra Template File Loading Process"
 
 
 # ---------- COPYING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
-echo "Started AvesTerra CERT/KEY File Linking Process"
+echo "Started AvesTerra CERT/KEY File Copying Process"
 
 # Clean out the old Certificates!
 rm -f /AvesTerra/Certificates/*
@@ -140,7 +141,17 @@ else
   printf "Error: The file $AVESTERRA_CERT_KEY_DIR_PATH/server.key doesn't exist" >&2
   exit -1
 fi
-echo "Completed AvesTerra CERT/KEY File Linking Process"
+echo "Completed AvesTerra CERT/KEY File Copying Process"
 # ---------- COPYING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
 
+# Chown /AvesTerra folder, to enable atra user explicit use of the folder
 sudo chown atra:atra -R /AvesTerra
+
+# Allow any user to run avu
+sudo chmod +x /AvesTerra/Executables/avu
+
+# Allow avu to read avesterra.pem
+sudo chmod +r /AvesTerra/Certificates/avesterra.pem
+
+# Allow execution of configure command
+sudo chmod +r /AvesTerra/Local/configure.txt
