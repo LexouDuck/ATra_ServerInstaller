@@ -34,7 +34,7 @@ sleep 5
 # ---------- LAUNCH AVESTERRA SERVER(END) -----------
 
 # ---------- CONFIGURE SERVER(BEGIN) -----------
-MASTER_AUTH="$( ./avu run /AvesTerra/Local/configure.txt 0 | grep -E '^[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+$' )"
+./avu run /AvesTerra/Local/configure.txt 0
 # ---------- CONFIGURE SERVER(END) -----------
 
 # ---------- START ADAPTERS ON BOOT -----------

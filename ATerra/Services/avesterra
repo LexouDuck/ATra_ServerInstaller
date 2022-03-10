@@ -1,0 +1,14 @@
+[Unit]
+Description=AvesTerra Server Service
+Requires=network.target
+After=network.target
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/AvesTerra/Executables/avesterra_server
+User=atra
+Group=atra
+
+[Install]
+WantedBy=multi-user.target
