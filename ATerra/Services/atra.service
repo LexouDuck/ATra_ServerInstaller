@@ -1,7 +1,7 @@
 [Unit]
 Description=Atra Adapter Service
-Requires=avesterra.service avial_authenticator.service avial_files.service avial_folders.service avial_objects.service avial_registries.service avial_trash.service
-After=avesterra.service avial_authenticator.service avial_files.service avial_folders.service avial_objects.service avial_registries.service avial_trash.service
+Requires=avesterra.service avial_compartments.service avial_files.service avial_folders.service avial_objects.service avial_registries.service avial_trash.service
+After=avesterra.service avial_compartments.service avial_files.service avial_folders.service avial_objects.service avial_registries.service avial_trash.service
 
 [Service]
 Type=simple
