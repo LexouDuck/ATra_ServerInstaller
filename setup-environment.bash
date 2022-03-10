@@ -74,7 +74,6 @@ sudo mkdir -p /AvesTerra/
 sudo mkdir -p /AvesTerra/Certificates
 sudo mkdir -p /AvesTerra/Executables
 sudo mkdir -p /AvesTerra/Local
-sudo mkdir -p /AvesTerra/Templates
 
 
 # Chown the directory, to remove root privileges
@@ -104,12 +103,6 @@ echo "Started AvesTerra Configuration File Loading Process"
 cp ./ATerra/Config/* /AvesTerra/Local
 echo "Completed AvesTerra Configuration File Loading Process"
 # ---------- COPY AVESTERRA CONFIGS(END) --------
-
-# ---------- COPY AVESTERRA TEMPLATES(BEGIN) --------
-echo "Started AvesTerra Template File Loading Process"
-cp ./ATerra/Templates/* /AvesTerra/Templates
-echo "Completed AvesTerra Template File Loading Process"
-# ---------- COPY AVESTERRA TEMPLATES(END) --------
 
 
 # ---------- COPYING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
