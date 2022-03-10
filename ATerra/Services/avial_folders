@@ -1,0 +1,16 @@
+[Unit]
+Description=Avial Folders Adapter Service
+Requires=avesterra.service
+After=avesterra.service
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/AvesTerra/Executables/avial_folders
+Restart=on-failure
+RestartSec=2s
+User=atra
+Group=atra
+
+[Install]
+WantedBy=multi-user.target

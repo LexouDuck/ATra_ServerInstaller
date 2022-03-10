@@ -1,0 +1,16 @@
+[Unit]
+Description=Atra Adapter Service
+Requires=avesterra.service avial_authenticator.service avial_files.service avial_folders.service avial_objects.service avial_registries.service avial_trash.service
+After=avesterra.service avial_authenticator.service avial_files.service avial_folders.service avial_objects.service avial_registries.service avial_trash.service
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/AvesTerra/Executables/atra
+Restart=on-failure
+RestartSec=2s
+User=atra
+Group=atra
+
+[Install]
+WantedBy=multi-user.target

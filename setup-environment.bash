@@ -76,6 +76,7 @@ sudo mkdir -p /AvesTerra/Executables
 sudo mkdir -p /AvesTerra/Local
 sudo mkdir -p /AvesTerra/Templates
 
+
 # Chown the directory, to remove root privileges
 # from the Executables
 sudo chown -R $USER:$USER /AvesTerra
@@ -111,34 +112,46 @@ echo "Completed AvesTerra Template File Loading Process"
 # ---------- COPY AVESTERRA TEMPLATES(END) --------
 
 
-# ---------- LINKING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
-echo "Started AvesTerra CERT/KEY File Linking Process"
+# ---------- COPYING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
+echo "Started AvesTerra CERT/KEY File Copying Process"
 
-# Clean out the old links!
+# Clean out the old Certificates!
 rm -f /AvesTerra/Certificates/*
 
-# If avesterra.pem isn't in the source dir, then error, else link
+# If avesterra.pem isn't in the source dir, then error, else cp into /AvesTerra/Certificates
 if [ "$( ls -la $AVESTERRA_CERT_KEY_DIR_PATH | grep 'avesterra.pem')" ]; then
-  ln -s $AVESTERRA_CERT_KEY_DIR_PATH/avesterra.pem /AvesTerra/Certificates/avesterra.pem
+  cp $AVESTERRA_CERT_KEY_DIR_PATH/avesterra.pem /AvesTerra/Certificates/avesterra.pem
 else
   printf "Error: The file $AVESTERRA_CERT_KEY_DIR_PATH/avesterra.pem doesn't exist" >&2
   exit -1
 fi
 
-# If server.pem isn't in the source dir, then error, else link
+# If server.pem isn't in the source dir, then error, else cp into /AvesTerra/Certificates
 if [ "$( ls -la $AVESTERRA_CERT_KEY_DIR_PATH | grep 'server.pem')" ]; then
-  ln -s $AVESTERRA_CERT_KEY_DIR_PATH/server.pem /AvesTerra/Certificates/server.pem
+  cp $AVESTERRA_CERT_KEY_DIR_PATH/server.pem /AvesTerra/Certificates/server.pem
 else
   printf "Error: The file $AVESTERRA_CERT_KEY_DIR_PATH/server.pem doesn't exist" >&2
   exit -1
 fi
 
-# If avesterra.key isn't in the source dir, then error, else link
+# If avesterra.key isn't in the source dir, then error, cp into /AvesTerra/Certificates
 if [ "$( ls -la $AVESTERRA_CERT_KEY_DIR_PATH | grep 'server.key')" ]; then
-  ln -s $AVESTERRA_CERT_KEY_DIR_PATH/server.key /AvesTerra/Certificates/server.key
+  cp $AVESTERRA_CERT_KEY_DIR_PATH/server.key /AvesTerra/Certificates/server.key
 else
   printf "Error: The file $AVESTERRA_CERT_KEY_DIR_PATH/server.key doesn't exist" >&2
   exit -1
 fi
-echo "Completed AvesTerra CERT/KEY File Linking Process"
-# ---------- LINKING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
+echo "Completed AvesTerra CERT/KEY File Copying Process"
+# ---------- COPYING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
+
+# Chown /AvesTerra folder, to enable atra user explicit use of the folder
+sudo chown atra:atra -R /AvesTerra
+
+# Allow any user to run avu
+sudo chmod +x /AvesTerra/Executables/avu
+
+# Allow avu to read avesterra.pem
+sudo chmod +r /AvesTerra/Certificates/avesterra.pem
+
+# Allow execution of configure command
+sudo chmod +r /AvesTerra/Local/configure.txt

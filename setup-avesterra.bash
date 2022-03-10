@@ -24,7 +24,7 @@
 # Clean out old /AvesTerra/Data folder
 sudo rm -rf /AvesTerra/Data
 
-# Move to /AvesTerra
+# Move to /AvesTerra/Executables
 cd /AvesTerra/Executables
 
 # ---------- LAUNCH AVESTERRA SERVER(BEGIN) -----------
@@ -34,7 +34,7 @@ sleep 5
 # ---------- LAUNCH AVESTERRA SERVER(END) -----------
 
 # ---------- CONFIGURE SERVER(BEGIN) -----------
-MASTER_AUTH="$( ./avu run /AvesTerra/Local/configure.txt 0 | grep -E '^[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+\-[a-z0-9]+$' )"
+sudo /AvesTerra/Executables/./avu run /AvesTerra/Local/configure.txt 0
 # ---------- CONFIGURE SERVER(END) -----------
 
 # ---------- START ADAPTERS ON BOOT -----------
