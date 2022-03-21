@@ -33,10 +33,6 @@ sudo systemctl start avesterra
 sleep 5
 # ---------- LAUNCH AVESTERRA SERVER(END) -----------
 
-# ---------- CONFIGURE SERVER(BEGIN) -----------
-sudo /AvesTerra/Executables/./avu run /AvesTerra/Local/configure.txt 0
-# ---------- CONFIGURE SERVER(END) -----------
-
 # ---------- START ADAPTERS ON BOOT -----------
 sudo systemctl enable avial_compartments
 sudo systemctl enable avial_files

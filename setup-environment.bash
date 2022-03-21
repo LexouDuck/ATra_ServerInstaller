@@ -98,13 +98,6 @@ echo "Completed AvesTerra Service Loading Process"
 # ---------- SERVICE CREATION(END) --------
 
 
-# ---------- COPY AVESTERRA CONFIGS(BEGIN) --------
-echo "Started AvesTerra Configuration File Loading Process"
-cp ./ATerra/Config/* /AvesTerra/Local
-echo "Completed AvesTerra Configuration File Loading Process"
-# ---------- COPY AVESTERRA CONFIGS(END) --------
-
-
 # ---------- COPYING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
 echo "Started AvesTerra CERT/KEY File Copying Process"
 
