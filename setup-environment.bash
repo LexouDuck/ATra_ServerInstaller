@@ -32,7 +32,7 @@ AVESTERRA_CERT_KEY_DIR_PATH="$HOME/Certificates"
 # ---------- DEPENDENCY INSTALLATION(BEGIN) -----------
 echo "Started AvesTerra Dependency Installation Process"
 # Yum package installs
-sudo yum install -y unzip gcc make autoconf automake libtool
+sudo yum install -y unzip gcc make autoconf automake libtool rng-tools
 echo "Completed AvesTerra Dependency Installation Process"
 # ---------- DEPENDENCY INSTALLATION(END) -----------
 
@@ -148,3 +148,7 @@ sudo chmod +r /AvesTerra/Certificates/avesterra.pem
 
 # Allow execution of configure command
 sudo chmod +r /AvesTerra/Local/configure.txt
+
+# Turn on RNGd
+sudo systemctl start rngd
+sudo systemctl enable rngd.service
