@@ -5,7 +5,6 @@ After=avesterra.service
 
 [Service]
 Type=simple
-RemainAfterExit=yes
 ExecStart=/AvesTerra/Executables/avial_compartments
 Restart=on-failure
 RestartSec=2s
