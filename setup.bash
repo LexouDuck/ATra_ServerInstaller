@@ -20,6 +20,15 @@
 #   WolfSSL version for builds.
 #######################################################################
 
+# Check for ATRa User
+if id "atra" &>/dev/null; then
+   echo "ATra User Exists, Installing!"
+else
+   echo "User 'atra' doesn't exist, please create user!"
+   exit -1
+fi
+
+
 # CHANGE THIS FOLDER PATH TO WHERE YOU ARE STORING
 # THE avesterra.pem, server.key, and server.pem FILES
 # Below is an example, where my script will look
@@ -100,9 +109,6 @@ echo "Completed AvesTerra Service Loading Process"
 # ---------- COPYING AVESTERRA (YOUR AVESTERRA GENERATED CERTIFICATES/KEYS)(BEGIN) --------
 echo "Started AvesTerra CERT/KEY File Copying Process"
 
-# Clean out the old Certificates!
-rm -f /AvesTerra/Certificates/*
-
 # If avesterra.pem isn't in the source dir, then error, else cp into /AvesTerra/Certificates
 if [ "$( ls -la $AVESTERRA_CERT_KEY_DIR_PATH | grep 'avesterra.pem')" ]; then
   cp $AVESTERRA_CERT_KEY_DIR_PATH/avesterra.pem /AvesTerra/Certificates/avesterra.pem
@@ -131,9 +137,6 @@ echo "Completed AvesTerra CERT/KEY File Copying Process"
 
 # Chown /AvesTerra folder, to enable atra user explicit use of the folder
 sudo chown atra:atra -R /AvesTerra
-
-# Allow any user to run avu
-sudo chmod +x /AvesTerra/Executables/avu
 
 # Allow avu to read avesterra.pem
 sudo chmod +r /AvesTerra/Certificates/avesterra.pem
