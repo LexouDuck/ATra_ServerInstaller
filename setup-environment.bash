@@ -73,7 +73,6 @@ echo "Started AvesTerra Directory Creation Process"
 sudo mkdir -p /AvesTerra/
 sudo mkdir -p /AvesTerra/Certificates
 sudo mkdir -p /AvesTerra/Executables
-sudo mkdir -p /AvesTerra/Local
 
 
 # Chown the directory, to remove root privileges
@@ -139,9 +138,28 @@ sudo chmod +x /AvesTerra/Executables/avu
 # Allow avu to read avesterra.pem
 sudo chmod +r /AvesTerra/Certificates/avesterra.pem
 
-# Allow execution of configure command
-sudo chmod +r /AvesTerra/Local/configure.txt
-
 # Turn on RNGd
 sudo systemctl start rngd
 sudo systemctl enable rngd.service
+
+# Sleep for a couple seconds, to let RNG do its thing
+sleep 5
+
+# ---------- START AVESTERRA ON BOOT(BEGIN) -----------
+sudo systemctl enable avesterra
+# ---------- START AVESTERRA ON BOOT(END) -----------
+
+# ---------- START ADAPTERS ON BOOT -----------
+sudo systemctl enable avial_compartments
+sudo systemctl enable avial_files
+sudo systemctl enable avial_folders
+sudo systemctl enable avial_objects
+sudo systemctl enable avial_registries
+sudo systemctl enable avial_trash
+sudo systemctl enable avial_generals
+sudo systemctl enable avial_boost
+# ---------- START ADAPTERS ON BOOT(END) -----------
+
+# ---------- START ATRA ON BOOT(BEGIN) -----------
+sudo systemctl enable atra
+# ---------- START ATRA ON BOOT(END) -----------
