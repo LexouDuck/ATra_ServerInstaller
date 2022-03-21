@@ -2,24 +2,22 @@ The contents of this folder will be used to install AvesTerra on the ATra
 test server, or really any RedHat/derivative machine.
 
 The "setup-environment.bash" script is used to install the server's dependencies,
-setup the directory structure, place the executables where they should go, and put
-the config files in their proper places; the provided config files are "NOT FINAL",
-and will definitely change before the test run.
-
-The "setup-avesterra.bash" script should only be run after the "setup-environment.bash"
-has successfully completed; this script depends on the directory structure, executables,
-existence of config files, and the proper version of WolfSSL to be installed
+setup the directory structure, place the executables where they should go, setup systemd services,
+and enable said system services on boot.  This script is also responsible for copying the certificates
+and keys into the /AvesTerra/Certificates folder, from a given source directory.  This measure
+was added, to help combat the risk of deleting the original certificates or keys, just in case
+the entire /AvesTerra directory was deleted.
 
 The "start-atra.bash/stop-atra.bash" are simply scripts that start/stop
 systemd services, which will be associated with AvesTerra executables
 and ATra executables.
 
 Also, feel free to edit the ATerra/Services files to your liking, just
-don't modify the executable paths.
+don't modify the executable paths.  I modified the service files to make them more of
+what you(Luke) wanted, such as running the executables as the user atra.
 
 NOTE: This script assumes that your certificates are in the directory $HOME/Certificates; if you are storing the Certificates
-elsewhere, then update the AVESTERRA_CERT_KEY_DIR_PATH variable, in the setup-environment.bash
- file, to have the absolute path to where you are storing the certificates(avesterra.pem/server.pem)/key(server.key).
+elsewhere, then update the AVESTERRA_CERT_KEY_DIR_PATH variable to reflect where your certificates are located.
 
 If you have any questions, email me at alex.larkin@ledr.io.
 
