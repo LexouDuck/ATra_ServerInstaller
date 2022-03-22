@@ -19,6 +19,10 @@ what you(Luke) wanted, such as running the executables as the user atra.
 NOTE: This script assumes that your certificates are in the directory $HOME/Certificates; if you are storing the Certificates
 elsewhere, then update the AVESTERRA_CERT_KEY_DIR_PATH variable to reflect where your certificates are located.
 
+NOTE 2.0: The setup script assumes that you put the executables, that J or I provided for you, in the ./ATerra/Executables directory.  So
+please ensure that the executables are placed in that directory, if you decide to run the setup.bash script
+
+
 If you have any questions, email me at alex.larkin@ledr.io.
 
 ~Alex
