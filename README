@@ -25,6 +25,13 @@ NOTE 2.0: The setup script assumes that you put the executables, that J or I pro
 directory doesn't come in the package, then please create it.  Ensure that the executables are placed in that directory, 
 if you decide to run the setup.bash script.
 
+NOTE 3.0: You may have problems running executables in the /AvesTerra/Executables directory, due to SELinux.  I had problems on my end, while
+testing my start script on my own RedHat servers, so you may need to add an exception, disabled checks, or turn off SELinux, if it is indeed
+being used on the production server.
+
+NOTE 4.0: I now have an option in the setup.bash script, where you can determine where you want to load the executables from.  By default,
+the directory $HOME/Executables is specified in the script, but really any other directory can be configured by modifying the setup.bash
+script.
 
 If you have any questions, email me at alex.larkin@ledr.io.
 

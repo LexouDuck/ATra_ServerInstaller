@@ -38,6 +38,11 @@ fi
 # the specified key/cert files.
 AVESTERRA_CERT_KEY_DIR_PATH="$HOME/Certificates"
 
+# CHANGE THIS FOLDER PATH TO WHERE YOU ARE STORING
+# THE atra executables
+AVESTERRA_EXECUTABLES_DIR_PATH="$HOME/Executables"
+
+
 # ---------- DEPENDENCY INSTALLATION(BEGIN) -----------
 echo "Started AvesTerra Dependency Installation Process"
 # Yum package installs
@@ -93,7 +98,7 @@ echo "Completed AvesTerra Directory Creation Process"
 
 # ---------- AVESTERRA EXECUTABLE SETUP(BEGIN) --------
 echo "Started AvesTerra Executable Loading Process"
-sudo cp ./ATerra/Executables/* /AvesTerra/Executables
+sudo cp $AVESTERRA_EXECUTABLES_DIR_PATH/* /AvesTerra/Executables
 echo "Completed AvesTerra Executable Loading Process"
 # ---------- AVESTERRA EXECUTABLE SETUP(END) --------
 
