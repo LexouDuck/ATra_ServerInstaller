@@ -1,14 +1,16 @@
 The contents of this folder will be used to install AvesTerra on the ATra
 test server, or really any RedHat/derivative machine.
 
-The "setup-environment.bash" script is used to install the server's dependencies,
+The "setup.bash" script is used to install the server's dependencies,
 setup the directory structure, place the executables where they should go, setup systemd services,
 and enable said system services on boot.  This script is also responsible for copying the certificates
 and keys into the /AvesTerra/Certificates folder, from a given source directory.  This measure
 was added, to help combat the risk of deleting the original certificates or keys, just in case
-the entire /AvesTerra directory was deleted.
+the entire /AvesTerra directory was deleted.  The setup.bash script simply puts the executables and services in their proper places, and
+enables the services to run on startup.  If you of course do all of this yourself, then there is really no need to run my setup.bash script,
+but I still wanted to provide the option for your convenience
 
-The "start-atra.bash/stop-atra.bash" are simply scripts that start/stop
+The "start.bash/stop.bash" are simply scripts that start/stop
 systemd services, which will be associated with AvesTerra executables
 and ATra executables.
 
@@ -19,8 +21,9 @@ what you(Luke) wanted, such as running the executables as the user atra.
 NOTE: This script assumes that your certificates are in the directory $HOME/Certificates; if you are storing the Certificates
 elsewhere, then update the AVESTERRA_CERT_KEY_DIR_PATH variable to reflect where your certificates are located.
 
-NOTE 2.0: The setup script assumes that you put the executables, that J or I provided for you, in the ./ATerra/Executables directory.  So
-please ensure that the executables are placed in that directory, if you decide to run the setup.bash script
+NOTE 2.0: The setup script assumes that you put the executables, that J or I provided for you, in the ./ATerra/Executables directory; if this
+directory doesn't come in the package, then please create it.  Ensure that the executables are placed in that directory, 
+if you decide to run the setup.bash script.
 
 
 If you have any questions, email me at alex.larkin@ledr.io.
